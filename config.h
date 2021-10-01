@@ -24,6 +24,16 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
+static const char *const autostart[] = {
+	"/home/dave/.cargo/bin/dwm-status", "/home/dave/.config/dwm-status/config.yml", NULL,
+	"nm-applet", NULL,
+	"udiskie", "-t", NULL,
+	"autorandr", "-c", NULL,
+	"pasystray", NULL,
+	"blueman-applet", NULL,
+	NULL /* terminate */
+};
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
