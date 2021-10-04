@@ -25,6 +25,7 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
+	"xss-lock", "slocktheme", NULL,
 	"/home/dave/.cargo/bin/dwm-status", "/home/dave/.config/dwm-status/config.yml", NULL,
 	"nm-applet", NULL,
 	"udiskie", "-t", NULL,
@@ -77,6 +78,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *slockcmd[] = { "slocktheme", NULL };
+static const char *bukucmd[] = { "buku_dmenu", NULL };
 /* sound */
 static const char *mutetogglecmd[] = {"amixer", "set", "Master", "toggle", NULL};
 static const char *volraisecmd[] = {"amixer", "set", "Master", "2%+", NULL};
@@ -138,6 +140,9 @@ static Key keys[] = {
 	/* keyboard layout */
 	{ MODKEY,                       XK_grave,  spawn,          {.v = keylayoutcmd } },
 	{ MODKEY,                   XK_semicolon,  spawn,          {.v = keylayoutcmd } },
+	/* utils */
+	{ MODKEY,                   XK_backslash,  spawn,          {.v = bukucmd } },
+
 };
 
 /* button definitions */
