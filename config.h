@@ -12,7 +12,8 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 //static const char *fonts[]          = { "monospace:size=10" };
 static const char *fonts[]          = { "Code New Roman Nerd Font:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+// static const char dmenufont[]       = "monospace:size=10"; 
+static const char dmenufont[]       = "Code New Roman Nerd Font:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -79,6 +80,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *slockcmd[] = { "slocktheme", NULL };
 static const char *bukucmd[] = { "buku_dmenu", NULL };
+static const char *filecmd[] = { "alacritty", "-e", "nnn", NULL };
 /* sound */
 static const char *mutetogglecmd[] = {"amixer", "set", "Master", "toggle", NULL};
 static const char *volraisecmd[] = {"amixer", "set", "Master", "2%+", NULL};
@@ -142,6 +144,7 @@ static Key keys[] = {
 	{ MODKEY,                   XK_semicolon,  spawn,          {.v = keylayoutcmd } },
 	/* utils */
 	{ MODKEY,                   XK_backslash,  spawn,          {.v = bukucmd } },
+	{ MODKEY,                   XK_n,          spawn,          {.v = filecmd } },
 
 };
 
