@@ -1281,7 +1281,10 @@ monocle(Monitor *m)
 	if (n > 0) /* override layout symbol */
 		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n);
 	for (c = nexttiled(m->clients); c; c = nexttiled(c->next))
+		resize(c, m->wx - c->bw, m->wy - c->bw, m->ww, m->wh, 0);
+		/* Override windows borders. Replaces:
 		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
+		 */
 }
 
 void
@@ -1938,6 +1941,12 @@ tile(Monitor *m)
 	for (n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++);
 	if (n == 0)
 		return;
+	/* Override borders when there is only one client. */
+	if (n == 1) {
+		c = nexttiled(m->clients);
+		resize(c, m->wx - c->bw, m->wy - c->bw, m->ww, m->wh, 0); //FIXME
+		return;
+	}
 
 	if (n > m->nmaster)
 		mw = m->nmaster ? m->ww * m->mfact : 0;
