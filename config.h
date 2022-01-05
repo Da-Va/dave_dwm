@@ -32,7 +32,6 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"light-locker", NULL,
-	"nitrogen", "--restore", NULL,
 	"/home/dave/.cargo/bin/dwm-status", "/home/dave/.config/dwm-status/config.yml", NULL,
 	"nm-applet", NULL,
 	"udiskie", "-t", NULL,
@@ -40,6 +39,8 @@ static const char *const autostart[] = {
 	"pasystray", "-a", NULL,
 	"blueman-applet", NULL,
 	"redshift-gtk", NULL,
+	"cbatticon", NULL,
+	"nitrogen", "--restore", NULL,
 	NULL /* terminate */
 };
 
