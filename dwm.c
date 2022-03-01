@@ -1643,7 +1643,9 @@ sendmon(Client *c, Monitor *m)
 	detach(c);
 	detachstack(c);
 	c->mon = m;
-	c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
+	// c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
+	// if (c->tags != m->tagset[m->seltags])
+	// 	seturgent(c, 1);
 	attach(c);
 	attachstack(c);
 	focus(NULL);
@@ -1944,7 +1946,7 @@ tile(Monitor *m)
 
 	if (n == 1 && !mons->next) {
 		c = nexttiled(m->clients);
-		resize(c, m->wx - c->bw, m->wy - c->bw, m->ww, m->wh, 0); //FIXME
+		resize(c, m->wx - c->bw, m->wy - c->bw, m->ww, m->wh, 0);
 		return;
 	}
 

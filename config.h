@@ -31,6 +31,7 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
+	// "picom", NULL,
 	"light-locker", NULL,
 	"/home/dave/.cargo/bin/dwm-status", "/home/dave/.config/dwm-status/config.yml", NULL,
 	"nm-applet", NULL,
@@ -38,7 +39,7 @@ static const char *const autostart[] = {
 	"autorandr", "-c", NULL,
 	"pasystray", "-a", NULL,
 	"blueman-applet", NULL,
-	"redshift-gtk", NULL,
+	// "redshift-gtk", NULL,
 	"cbatticon", NULL,
 	"nitrogen", "--restore", NULL,
 	NULL /* terminate */
@@ -84,7 +85,9 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+// static const char *dmenucmd[] = {"rofi", "-monitor", dmenumon, "-show", "combi", "-combi-modi", "drun,run", "-show-icons", NULL};
 static const char *termcmd[]  = { "kitty", NULL };
+static const char *browsercmd[]  = { "brave", NULL };
 
 static const char *lockcmd[] = { "dm-tool", "lock", NULL };
 static const char *bukucmd[] = { "buku_dmenu", NULL };
@@ -101,6 +104,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Escape, spawn,          {.v = lockcmd } },
+	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
