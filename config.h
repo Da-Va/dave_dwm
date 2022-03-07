@@ -149,6 +149,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_aacute,                 7)
 	TAGKEYS(                        XK_iacute,                 8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ControlMask,           XK_q,      quit,           {.i = 100} },
 	/* sound */
 	{ 0,                     XF86XK_AudioMute, spawn,          {.v = mutetogglecmd} },
 	{ 0,              XF86XK_AudioLowerVolume, spawn,          {.v = vollowercmd} },

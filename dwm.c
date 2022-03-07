@@ -300,6 +300,7 @@ static void (*handler[LASTEvent]) (XEvent *) = {
 };
 static Atom wmatom[WMLast], netatom[NetLast], xatom[XLast];
 static int running = 1;
+static int ret = EXIT_SUCCESS;
 static Cur *cursor[CurLast];
 static Clr **scheme;
 static Display *dpy;
@@ -1439,7 +1440,7 @@ quit(const Arg *arg)
 			waitpid(autostart_pids[i], NULL, 0);
 		}
 	}
-
+	ret = arg->i;
 	running = 0;
 }
 
@@ -2585,5 +2586,5 @@ main(int argc, char *argv[])
 	run();
 	cleanup();
 	XCloseDisplay(dpy);
-	return EXIT_SUCCESS;
+	return ret;
 }
